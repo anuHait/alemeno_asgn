@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { collection, getDocs, updateDoc, doc } from 'firebase/firestore'; // Import collection function from Firestore
+import { collection, getDocs, updateDoc, doc } from 'firebase/firestore'; 
 import db from '../../services/firebase'; 
 
 export const fetchCourses = createAsyncThunk('courses/fetchCourses', async () => {

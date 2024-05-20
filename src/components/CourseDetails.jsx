@@ -58,7 +58,7 @@ function CourseDetails() {
   return (
     <div className='bg-gray-200 h-screen w-full flex flex-col gap-4 p-4'>
       <Navbar />
-      <div className='flex flex-col gap-4 items-start justify-start bg-white p-10 rounded-[20px] shadow-md h-screen w-full overflow-y-scroll scrollbar-hide'>
+      <div className='flex flex-col gap-4 items-start justify-start bg-white p-7 md:p-10 rounded-[20px] shadow-md h-screen w-full overflow-y-scroll scrollbar-hide'>
         <h1 className='text-xl md:text-2xl font-semibold text-gray-900 ml-2'>Course Details</h1>
         <div className='flex md:flex-row flex-col gap-4 md:gap-8 items-center justify-center md:items-start md:justify-between w-full m-2'>
           <div className='flex flex-col gap-5'>

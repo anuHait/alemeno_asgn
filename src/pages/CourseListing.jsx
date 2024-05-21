@@ -5,7 +5,7 @@ import { fetchCourses ,updateCourseLikes} from '../redux/slices/courseSlice';
 import { BsSearch } from "react-icons/bs";
 import { AiFillLike } from "react-icons/ai";
 import { GoArrowUpRight } from "react-icons/go";
-
+import Loader from '../components/Loader';
 import Navbar from '../components/Navbar';
 const CourseListing = () => {
   const dispatch = useDispatch();
@@ -21,7 +21,7 @@ const CourseListing = () => {
   }, [courseStatus, dispatch,courses]);
 
   if (courseStatus === 'loading') {
-    return <div>Loading...</div>;
+    return (<div className='flex items-center justify-center h-screen w-screen'><Loader/></div>);
   }
 
   if (courseStatus === 'failed') {
@@ -62,7 +62,7 @@ const CourseListing = () => {
         filteredCourses?.map((course) => (
       
       <div key={course.id} className="shadow-md h-fit flex flex-row items-center justify-start rounded-[20px]  gap-6 p-4 w-full m-2 hover:border ease-in duration-150 hover:border-blue-600">
-      <div className='h-28 w-32 md:h-36 md:w-40 rounded-lg  bg-gray-400'></div>
+      <img src={course?.thumbnail} className='h-28 w-32 md:h-36 md:w-40 rounded-lg  '></img>
       <div className='flex flex-col gap-1 w-full'>
       <div className='flex flex-row items-start justify-between'>
       <h1 className='text-lg md:text-xl lg:text-2xl font-semibold'>{course.name}</h1>

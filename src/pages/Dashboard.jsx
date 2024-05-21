@@ -18,7 +18,7 @@ function Dashboard() {
     }, [userStatus, dispatch]);
 
     if (userStatus === 'loading') {
-        return (<div className='flex items-center justify-center '><Loader/></div>);
+        return (<div className='flex items-center justify-center h-screen w-screen'><Loader/></div>);
     }
 
     if (userStatus === 'failed') {

@@ -2,23 +2,22 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCourseById } from '../redux/slices/courseSlice'; 
-import dogo from '../assets/dogo.jpg';
 import Navbar from './Navbar';
 import { IoLocationOutline } from "react-icons/io5";
 import { GiAlarmClock } from "react-icons/gi";
 import { CgSandClock } from "react-icons/cg";
 import { IoCalendarOutline } from "react-icons/io5";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa"; // Icons for expand/collapse
-
+import { FaChevronDown, FaChevronUp } from "react-icons/fa"; 
+import Loader from './Loader';
 function CourseDetails() {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const course = useSelector((state) => state.courses.selectedCourse); // Access course from Redux state
-  const status = useSelector((state) => state.courses.status); // Access loading status
+  const course = useSelector((state) => state.courses.selectedCourse); 
+  const status = useSelector((state) => state.courses.status); 
   const [days, setDays] = useState([]);
   const [times, setTimes] = useState([]);
-  const [syllabusExpanded, setSyllabusExpanded] = useState(false); // State for syllabus expansion
-  const [expandedTopics, setExpandedTopics] = useState({}); // State for individual topics
+  const [syllabusExpanded, setSyllabusExpanded] = useState(false); 
+  const [expandedTopics, setExpandedTopics] = useState({}); 
 
   useEffect(() => {
     dispatch(fetchCourseById(id)); 
@@ -44,7 +43,7 @@ function CourseDetails() {
   };
 
   if (status === 'loading') {
-    return <div>Loading course...</div>;
+    return (<div className='flex items-center justify-center h-screen w-screen'><Loader/></div>);
   }
 
   if (status === 'failed') {
@@ -83,7 +82,7 @@ function CourseDetails() {
             </div>
             <div className='text-gray-600 font-semibold '>Enrollment Status <span className='text-white font-medium bg-orange-500 p-1.5 rounded-lg text-sm'>{course?.enrollmentStatus}</span></div>
           </div>
-          <img src={dogo} className='w-60 h-60 md:w-72 md:h-72 rounded-lg shadow-md' alt="course thumbnail" />
+          <img src={course?.thumbnail} className='w-60 h-60 md:w-72 md:h-72 rounded-lg shadow-md' alt="course thumbnail" />
         </div>
         <div className="flex flex-col gap-3 m-2 w-[80%] h-full ">
           <div className="flex flex-row justify-between items-center cursor-pointer" onClick={toggleSyllabus}>

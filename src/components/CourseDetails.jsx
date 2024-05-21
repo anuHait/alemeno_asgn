@@ -106,8 +106,8 @@ function CourseDetails() {
                   </div>
                   {expandedTopics[index] && (
                     <div className="flex flex-col gap-1.5">
-                      <p className="text-sm md:text-md ">{syllabus.content}</p>
-                      <p className="text-sm md:text-md ">Week: {syllabus.week}</p>
+                      <p className="text-sm md:text-md font-medium">{syllabus.content}</p>
+                      <p className="text-sm md:text-md font-medium">Week: {syllabus.week}</p>
                     </div>
                   )}
                 </div>

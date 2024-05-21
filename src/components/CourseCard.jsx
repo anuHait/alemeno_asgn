@@ -24,7 +24,7 @@ function CourseCard({ id, course }) {
 
   return (
     <div className="border border-blue-700 w-[95%] flex flex-row gap-3 md:gap-6 p-3.5 rounded-[20px] shadow items-center">
-      <div className="h-24 w-28 md:h-32 md:w-36 rounded-lg bg-gray-400"></div>
+      <img src={course?.courseDetails?.thumbnail} className="h-24 w-28 md:h-32 md:w-36 rounded-lg bg-gray-400"></img>
       <div className="flex flex-col gap-1 w-full">
         <div className="flex flex-row items-start justify-between w-full">
           <h1 className="text-lg md:text-xl lg:text-2xl font-semibold">
